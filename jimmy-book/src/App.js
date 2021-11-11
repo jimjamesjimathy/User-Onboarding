@@ -52,6 +52,9 @@ export default function App() {
       errors={formErrors}
       submit={handleSubmit}
       />
+      <br />
+      <br />
+      <br />
       {users.map(user => (
         <div key={user.id} className='submitted-text'>
           <p>New user added: {user.createdAt}</p>

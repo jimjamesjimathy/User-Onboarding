@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import '../App.css'
-
+import Terms from "./Terms";
 const Form = (props) => {
+  const [terms, setTerms] = useState(false);
 
   const { change, submit, errors } = props;
   const { first_name, last_name, email, password, tos } = props.values;
@@ -15,6 +16,7 @@ const Form = (props) => {
     event.preventDefault();
     submit();
   }
+
   return(
     <div className='container'>
       <div className='inputs-text-wrap'>
@@ -26,8 +28,8 @@ const Form = (props) => {
       <p>{errors.email}</p>
       <p>{errors.password}</p>
       <p>{errors.tos}</p>
-      <form onSubmit={onSubmit}>
-        <label>First Name:
+      <form onSubmit={onSubmit} className='form-flex'>
+        <label><p>First Name:</p>
           <input 
             type='text'
             name='first_name'
@@ -37,7 +39,7 @@ const Form = (props) => {
           <br />
         </label>
 
-        <label>Last Name:
+        <label><p>Last Name:</p>
           <input 
             type='text'
             name='last_name'
@@ -47,7 +49,7 @@ const Form = (props) => {
           <br />
         </label>
 
-        <label>Email:
+        <label><p>Email:</p>
           <input 
             type='email'
             name='email'
@@ -57,7 +59,7 @@ const Form = (props) => {
           <br />
           </label>
 
-        <label>Password:
+        <label><p>Password:</p>
           <input 
             type='password'
             name='password'
@@ -67,7 +69,8 @@ const Form = (props) => {
           <br />
         </label>
 
-        <label>Terms Of Service:
+        <label>
+          <p>Terms Of Service:</p>
           <input 
             type='checkbox'
             name='tos'
